@@ -38,7 +38,7 @@ if [ "$AppName" = "no" ]; then
   echo "Do not generate QR-code"
 else
   [ ! -d /wwwroot/${QR_Path} ] && mkdir /wwwroot/${QR_Path}
-  ss="ss://$(echo -n ${ENCRYPT}:${PASSWORD} | base64 -w 0)@${DOMAIN}:2333" 
+  ss="ss://$(echo -n ${ENCRYPT}:${PASSWORD} | base64 -w 0)@${DOMAIN}:443" 
   echo "${ss}" | tr -d '\n' > /wwwroot/${QR_Path}/index.html
   echo -n "${ss}" | qrencode -s 6 -o /wwwroot/${QR_Path}/vpn.png
 fi
